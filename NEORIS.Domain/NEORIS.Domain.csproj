@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>NEORIS.Domain</RootNamespace>
+    <AssemblyName>NEORIS.Domain</AssemblyName>
+  </PropertyGroup>
+</Project>

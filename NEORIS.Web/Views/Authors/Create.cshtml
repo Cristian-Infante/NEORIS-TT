@@ -1,0 +1,63 @@
+@model NEORIS.Web.Models.CreateAuthorViewModel
+@{
+    ViewBag.Title = "Nuevo Autor";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="mb-4 page-header">
+            <h2 class="mb-0">Nuevo Autor</h2>
+        </div>
+
+        @if (Html.ValidationSummary(false) != null)
+        {
+            @Html.ValidationSummary(false, "", new { @class = "alert alert-danger" })
+        }
+
+        <div class="form-card">
+            <p class="text-muted small mb-4"><span class="required-star">*</span> Campos obligatorios</p>
+
+            @using (Html.BeginForm("Create", "Authors", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Nombre Completo<span class="required-star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Ej: Gabriel Garcia Marquez", required = "required" })
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger small" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Fecha de Nacimiento<span class="required-star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.BirthDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date", required = "required" })
+                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger small" })
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">
+                        Ciudad de Origen<span class="required-star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.OriginCity, new { @class = "form-control", placeholder = "Ej: Bogota", required = "required" })
+                    @Html.ValidationMessageFor(m => m.OriginCity, "", new { @class = "text-danger small" })
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">
+                        Correo Electronico<span class="required-star">*</span>
+                    </label>
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "autor@ejemplo.com", required = "required" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger small" })
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Crear Autor</button>
+                    <a href="@Url.Action("Index")" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>

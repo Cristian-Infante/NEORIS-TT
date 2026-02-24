@@ -1,0 +1,50 @@
+@model IEnumerable<NEORIS.Web.Models.AuthorViewModel>
+@{
+    ViewBag.Title = "Autores";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 page-header">
+    <h2 class="mb-0">Autores</h2>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Nuevo Autor</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <p class="fs-5">No hay autores registrados.</p>
+        <a href="@Url.Action("Create")" class="btn btn-outline-primary mt-2">Registrar primer autor</a>
+    </div>
+}
+else
+{
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Ciudad de Origen</th>
+                        <th>Correo</th>
+                        <th class="text-center" style="width:90px">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var author in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@author.FullName</td>
+                            <td>@author.BirthDate.ToString("dd/MM/yyyy")</td>
+                            <td>@author.OriginCity</td>
+                            <td><a href="mailto:@author.Email" class="text-decoration-none">@author.Email</a></td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Details", new { id = author.Id })" class="btn btn-sm btn-outline-primary">Ver</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="text-muted small mt-2">@Model.Count() autor(es) registrado(s)</p>
+}

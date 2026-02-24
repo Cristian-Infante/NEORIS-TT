@@ -1,0 +1,43 @@
+@model NEORIS.Web.Models.BookViewModel
+@{
+    ViewBag.Title = "Detalle del Libro";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="mb-4 page-header">
+            <h2 class="mb-0">Detalle del Libro</h2>
+        </div>
+
+        <div class="form-card">
+            <div class="row mb-3">
+                <div class="col-5 text-muted fw-semibold">Titulo</div>
+                <div class="col-7 fw-bold fs-5">@Model.Title</div>
+            </div>
+            <hr class="my-2">
+            <div class="row mb-3">
+                <div class="col-5 text-muted fw-semibold">Ano de Publicacion</div>
+                <div class="col-7">@Model.Year</div>
+            </div>
+            <hr class="my-2">
+            <div class="row mb-3">
+                <div class="col-5 text-muted fw-semibold">Genero</div>
+                <div class="col-7"><span class="badge bg-secondary fs-6">@Model.Genre</span></div>
+            </div>
+            <hr class="my-2">
+            <div class="row mb-3">
+                <div class="col-5 text-muted fw-semibold">Numero de Paginas</div>
+                <div class="col-7">@Model.PageCount.ToString("N0")</div>
+            </div>
+            <hr class="my-2">
+            <div class="row mb-4">
+                <div class="col-5 text-muted fw-semibold">Autor</div>
+                <div class="col-7 fw-semibold">@Model.AuthorFullName</div>
+            </div>
+
+            <div class="d-flex gap-2">
+                <a href="@Url.Action("Index")" class="btn btn-outline-secondary">Volver al listado</a>
+            </div>
+        </div>
+    </div>
+</div>

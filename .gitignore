@@ -1,0 +1,106 @@
+# ===========================
+# Build results
+# ===========================
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa]rch64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ===========================
+# Visual Studio
+# ===========================
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+.vscode/
+
+# ===========================
+# NuGet
+# ===========================
+*.nupkg
+*.snupkg
+**/packages/
+!**/packages/build/
+**/[Pp]ackages/
+nuget.exe
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ===========================
+# Rider / JetBrains
+# ===========================
+.idea/
+*.sln.iml
+
+# ===========================
+# ASP.NET
+# ===========================
+AppData/
+ClientBin/
+[Ss]tyle[Cc]op.*
+![Ss]tyle[Cc]op.targets
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishproj
+PublishScripts/
+ServiceFabricBackup/
+*.bak
+
+# ===========================
+# Windows
+# ===========================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ===========================
+# macOS
+# ===========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===========================
+# SQL Server
+# ===========================
+*.mdf
+*.ldf
+*.ndf
+
+# ===========================
+# Test results
+# ===========================
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+TestResult.xml
+nunit-*.xml
+
+# ===========================
+# Misc
+# ===========================
+*.cache
+*.pidb
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+*.VC.opendb
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user

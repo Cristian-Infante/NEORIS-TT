@@ -1,0 +1,52 @@
+@model IEnumerable<NEORIS.Web.Models.BookViewModel>
+@{
+    ViewBag.Title = "Libros";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4 page-header">
+    <h2 class="mb-0">Libros</h2>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Nuevo Libro</a>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5 text-muted">
+        <p class="fs-5">No hay libros registrados.</p>
+        <a href="@Url.Action("Create")" class="btn btn-outline-primary mt-2">Registrar primer libro</a>
+    </div>
+}
+else
+{
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Ano</th>
+                        <th>Genero</th>
+                        <th>Paginas</th>
+                        <th>Autor</th>
+                        <th class="text-center" style="width:90px">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var book in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@book.Title</td>
+                            <td>@book.Year</td>
+                            <td><span class="badge bg-secondary">@book.Genre</span></td>
+                            <td>@book.PageCount.ToString("N0")</td>
+                            <td>@book.AuthorFullName</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Details", new { id = book.Id })" class="btn btn-sm btn-outline-primary">Ver</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p class="text-muted small mt-2">@Model.Count() libro(s) registrado(s)</p>
+}
